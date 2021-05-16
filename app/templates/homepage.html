@@ -1,0 +1,46 @@
+{% extends "parent.html" %}
+
+{% block content %}
+
+<div class="jumbotron" style="text-align: center; padding:20px; background-color: white;">
+  <h2><b>Welcome to Network Measures app</b></h2>
+  <h5>This device calculates basic parametres of the structure of the lexicon: the degree
+    (i.e. phonological neighbourhood density) and the clustering coefficient.
+    It was designed and created for research purposes for phonologists, psychologists, and psycholinguists. Follow the instructions to generate your desired output.</h5>
+</div>
+
+ <div class="row fluid">
+
+   <div class="col-lg-4 fluid"  style="margin-left: 40px; margin-right: 40px;">
+     <div  class="card">
+       <img class="card-img-top" src="static/pics/degree.png">
+       <div class="card-body">
+         <h4 class="card-title"><b>Phonological Neighbours and Neighbourhood Density (Degree)</b></h4>
+         <p class="card-text">Find out more about phonological neighbourhood density and generate a word's phonological neighbours.</p>
+       </div>
+       <div class="card-footer text-center">
+         <a href="/neighbours" class="btn btn-primary">Learn more and/or calculate neighbourhood density</a>
+       </div>
+     </div>
+   </div>
+
+   <div class="col-lg-4 fluid"  style="margin-right: 40px; margin-left: 40px;">
+     <div  class="card">
+       <img class="card-img-top" src="static/pics/neighbours.png">
+       <div class="card-body">
+         <h4 class="card-title"><b>Clustering Coefficient (Number of Neighbours' Neighbours)</b></h4>
+         <p class="card-text">Learn about the clustering coefficient or generate pairs of a word's neighbours which are the neighbours of one another.</p>
+       </div>
+       <div class="card-footer text-center">
+         <a href="coefficient" class="btn btn-primary">Learn more or/and calculate clustering coefficient</a>
+       </div>
+     </div>
+   </div>
+
+
+ </div>
+
+
+
+
+{% endblock %}
