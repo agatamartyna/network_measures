@@ -29,22 +29,5 @@ def coefficient_cluster(word, words):
             tuples.append(tupl)
 
 
-
     return tuples
 
-if __name__ == "__main__":
-    word = "kot"
-    words = lines_split
-    print(coefficient_cluster(word, words))
-
-
-"""
-    # get separate items
-    coefficient_cluster = []
-    for tupl in tuples:
-        if tupl[0] not in coefficient_cluster:
-            coefficient_cluster.append(tupl[0])
-        if tupl[1] not in coefficient_cluster:
-            coefficient_cluster.append(tupl[1])
-
-"""

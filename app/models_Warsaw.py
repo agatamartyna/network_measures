@@ -122,6 +122,3 @@ def transcribe_text_Warsaw(text):
 
     return result
 
-if __name__ == "__main__":
-    text = input("Wpisz tekst: ")
-    print(transcribe_text_Warsaw(text))

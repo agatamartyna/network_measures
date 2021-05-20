@@ -1,15 +1,16 @@
-from flask import render_template, request, redirect, url_for
+from flask import render_template, request
 from app import app
 from app.forms import NeighboursForm, CoefficientForm
 from app.neighbourhood_density import neighbourhood_density
 from app.coefficient import coefficient_cluster
 from app.dictionary_process import words_segmentised
 import networkx as nx
-import matplotlib
-matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 import io
 import base64
+import matplotlib
+matplotlib.use('Agg')
+
 
 
 @app.route('/', methods=["GET", "POST"])
