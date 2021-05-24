@@ -7,10 +7,13 @@
         <div class="col-sm-10">
 
             <div class="panel panel-default" style="margin-top:15px;">
-                <div class="panel-heading"><h2>Generate Phonological Neighbours and Neighbourhood Density</h2></div>
+                <div class="panel-heading">
+                    <h2>Generate Phonological Neighbours and Neighbourhood Density</h2>
+                </div>
                 <div class="panel-body">
                     <div class="container-fluid">
-                        <p><span><b>Neighbourhood density</b></span> is a measure indicating the number of a word's phonological neighbours.
+                        <p><span><b>Neighbourhood density</b></span>
+                            is a measure indicating the number of a word's phonological neighbours.
                             A word's phonological neighbour is a sequence differing from it by one phoneme by virtue of
                             replacement (subsititution), deletion or insertion of one phoneme.
                             Thus, among the phonological neighbours of the Polish word 'kot' are 'kit'
@@ -20,7 +23,9 @@
                     </div>
                 <div class="form-group">
                     <form action='/neighbours' method="POST">
-                        <h4>{{ form.word(class="form-control", style="width: 20%; font-size: 18px;", placeholder="Enter a word...") }}</h4>
+                        <h4>
+                            {{ form.word(class="form-control", style="width: 20%;
+                            font-size: 18px;", placeholder="Enter a word...") }}</h4>
                         <input type="submit" class="btn btn-primary" value="Generate">
                     </form>
                 </div>
@@ -31,7 +36,13 @@
             <div class="panel panel-default" style="margin-top:15px;">
                 <div class="panel-heading"><h4>Neighbours: <span><b>{{ word }}</b></span></h4></div>
                 <div class="panel-body">
-                    <h4>{% if neighbours!=None %}{% for neighbour in neighbours%}{{ neighbour }}, {% endfor %}{% else %}<span style="color: #a9acb0">...</span>{% endif %}</h4>
+                    <h4>
+                        {% if neighbours!=None %}
+                        {% for neighbour in neighbours%}
+                        {{ neighbour }}, {% endfor %}{% else %}
+                        <span style="color: #a9acb0">...</span>
+                        {% endif %}
+                    </h4>
                 </div>
                 {% if word %}
                 <img src="data:image/png;base64, {{ plot_url }}">
@@ -39,7 +50,9 @@
             </div>
 
             <div class="panel panel-default" style="margin-top:15px;">
-                <div class="panel-heading"><h4>Phonological Neighbourhood Density: <span><b>{{ word}}</b></span> </h4></div>
+                <div class="panel-heading">
+                    <h4>Phonological Neighbourhood Density: <span><b>{{ word}}</b></span> </h4>
+                </div>
                 <div class="panel-body">
                     <h4><b>{{ density }}</b></h4>
                 </div>

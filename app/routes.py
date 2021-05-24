@@ -12,7 +12,6 @@ import matplotlib
 matplotlib.use('Agg')
 
 
-
 @app.route('/', methods=["GET", "POST"])
 def index():
     form = NeighboursForm()
@@ -28,12 +27,14 @@ def index():
                     neighbours_cut.append(neighbour.lower())
             density = len(neighbours_cut)
 
-            return render_template("homepage.html", form=form, word=word, density=density)
+            return render_template("homepage.html",
+                                   form=form, word=word, density=density)
 
         elif form_co.data["word_co"]:
             word_co = form_co.data['word_co']
             words_for_cluster = words_segmentised
-            neighbours_in_cluster = coefficient_cluster(word_co, words_for_cluster)
+            neighbours_in_cluster = coefficient_cluster(
+                word_co, words_for_cluster)
             e = len(neighbours_in_cluster)
 
             neighbours = neighbourhood_density(word_co, words_for_cluster)
@@ -51,7 +52,9 @@ def index():
                 c = 2 * e / (density * (density - 1))
                 c = round(c, 2)
 
-            return render_template("homepage.html", form_co=form_co, word_co=word_co, density=density, c=c)
+            return render_template("homepage.html",
+                                   form_co=form_co, word_co=word_co,
+                                   density=density, c=c)
 
     return render_template("homepage.html", form=form)
 
@@ -64,7 +67,8 @@ def coefficient():
         if form_co.data['word_co'] != '':
             word_co = form_co.data['word_co']
             words_for_cluster = words_segmentised
-            neighbours_in_cluster = coefficient_cluster(word_co, words_for_cluster)
+            neighbours_in_cluster = coefficient_cluster(
+                word_co, words_for_cluster)
             e = len(neighbours_in_cluster)
 
             neighbours = neighbourhood_density(word_co, words_for_cluster)
@@ -98,7 +102,6 @@ def coefficient():
             for nneighbour in nneighbours:
                 G.add_edge(nneighbour[0], nneighbour[1], color='r')
 
-
             colors = nx.get_edge_attributes(G, 'color').values()
             weights = nx.get_edge_attributes(G, 'weight').values()
 
@@ -116,8 +119,10 @@ def coefficient():
 
             plot_url = base64.b64encode(img.getvalue()).decode()
 
-            return render_template("coefficient.html", form_co=form_co, word_co=word_co, density=density,
-                                   neighbours_in_cluster=neighbours_in_cluster, c=c, plot_url=plot_url)
+            return render_template("coefficient.html", form_co=form_co,
+                                   word_co=word_co, density=density,
+                                   neighbours_in_cluster=neighbours_in_cluster,
+                                   c=c, plot_url=plot_url)
 
         if form.data["word"] != '':
             word = form.data["word"]
@@ -129,9 +134,11 @@ def coefficient():
                     neighbours_cut.append(neighbour.lower())
             density = len(neighbours_cut)
 
-            return render_template("coefficient.html", form=form, form_co=form_co, word=word, density=density)
+            return render_template("coefficient.html", form=form,
+                                   form_co=form_co, word=word, density=density)
 
     return render_template("coefficient.html", form_co=form_co)
+
 
 @app.route("/neighbours", methods=["GET", "POST"])
 def neighbours():
@@ -181,13 +188,18 @@ def neighbours():
 
             plot_url = base64.b64encode(img.getvalue()).decode()
 
-            return render_template("neighbours.html", neighbours=neighbours_cut, form=form, word=word,
-                                   density=density, plot_url=plot_url)
+            return render_template("neighbours.html",
+                                   neighbours=neighbours_cut,
+                                   form=form,
+                                   word=word,
+                                   density=density,
+                                   plot_url=plot_url)
 
         if form_co.data["word_co"] != '':
             word_co = form_co.data["word_co"]
             words_for_cluster = words_segmentised
-            neighbours_in_cluster = coefficient_cluster(word_co, words_for_cluster)
+            neighbours_in_cluster = coefficient_cluster(
+                word_co, words_for_cluster)
             e = len(neighbours_in_cluster)
 
             neighbours = neighbourhood_density(word_co, words_for_cluster)
@@ -205,21 +217,8 @@ def neighbours():
                 c = 2 * e / (density * (density - 1))
                 c = round(c, 2)
 
-
-
-            return render_template("neighbours.html", form=form, form_co=form_co, word_co=word_co, density=density, c=c)
-
+            return render_template("neighbours.html", form=form,
+                                   form_co=form_co, word_co=word_co,
+                                   density=density, c=c)
 
     return render_template("neighbours.html", form=form)
-
-
-"""
-
-
-            y = [1, 2, 3, 4, 5]
-            x = [0, 2, 1, 3, 4]
-            plt.plot(x, y)
-
-
-
-"""

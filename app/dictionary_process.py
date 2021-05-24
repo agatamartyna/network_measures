@@ -1,7 +1,10 @@
 from app.models import ipa_dict
 from app.segmentise import segmentise
 
-lines = [line.strip() for line in open('app/static/slowa1.txt', encoding="utf8")]
+
+lines = [
+    line.strip() for line in open('app/static/slowa1.txt', encoding="utf8")
+]
 lines_split = []
 for line in lines:
     for item in line.split(', '):

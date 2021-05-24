@@ -2,26 +2,27 @@ from app.segmentise import segmentise
 
 
 quadruples = {
-    '\u0254\u0303w\u0303':'OPEN_MID_ROUND_NAS_DYPH',
-    '\u025B\u0303w\u0303':'MID_OPEN_FRONT_NAS_DYPH'
+    '\u0254\u0303w\u0303': 'OPEN_MID_ROUND_NAS_DYPH',
+    '\u025B\u0303w\u0303': 'MID_OPEN_FRONT_NAS_DYPH'
 }
 doubles = {
-    'ts':'VS_ALV_AFF',
-    't\u0255':'VS_PAL_AFF',
-    't\u0282':'VS_POSTALV_AFF',
-    'd\u0291':'VD_PAL_AFF',
-    'dz':'VD_ALV_AFF',
+    'ts': 'VS_ALV_AFF',
+    't\u0255': 'VS_PAL_AFF',
+    't\u0282': 'VS_POSTALV_AFF',
+    'd\u0291': 'VD_PAL_AFF',
+    'dz': 'VD_ALV_AFF',
     'd\u0290': 'VD_POSTALV_AFF'
 }
 
 
-#sec
 def neighbourhood_density(word, words):
     word_items = segmentise(word)
     n = []
     for l in words:
-        if len(l[0]) - 1 <= len(word_items) <= len(l[0]) + 1: # this line selects item of desirable length
-            if len(l[0]) == len(word_items): # for length-peers
+        # this line selects item of desirable length
+        if len(l[0]) - 1 <= len(word_items) <= len(l[0]) + 1:
+            # for length-peers
+            if len(l[0]) == len(word_items):
                 segment_count = 0
                 for i in range(len(l[0])):
                     if (
@@ -55,4 +56,3 @@ def neighbourhood_density(word, words):
                     n.append(''.join(l[1]))
 
     return n
-

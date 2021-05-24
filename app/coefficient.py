@@ -1,11 +1,9 @@
 from app.density import neighbourhood_density
 from app.segmentise import segmentise
-from app.words_density import words_density
-from app.dictionary_process import lines_split
+
 
 def coefficient_cluster(word, words):
     # prepare words for generating neighbourhood density
-    # before it went: words_segmentised = words_density(words)
     words_segmentised = words
 
     # get neighbours of a given word
@@ -18,7 +16,8 @@ def coefficient_cluster(word, words):
     # get neighbours of neighbours
     neighbours_neighbours = []
     for neighbour in neighbours:
-        neighbour_neighbour = neighbourhood_density(neighbour, neighbours_segmentised)
+        neighbour_neighbour = neighbourhood_density(
+            neighbour, neighbours_segmentised)
         for n_n in neighbour_neighbour:
             neighbours_neighbours.append((neighbour, n_n))
 
@@ -28,6 +27,4 @@ def coefficient_cluster(word, words):
         if (tupl[1], tupl[0]) not in tuples:
             tuples.append(tupl)
 
-
     return tuples
-

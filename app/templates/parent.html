@@ -68,13 +68,16 @@
       <div class="col-sm-2 sidenav">
       <ul class="nav nav-pills nav-stacked">
         <hr>
-        <li><a data-toggle="collapse" href="#collapseNeighbour"  aria-expanded="false" aria-controls="collapseNeighbour" style="color: black; font-weight: bold; background-color:#5789fa; text-decoration:none;"><span class="glyphicon glyphicon-hand-right"></span> NEIGHBOURHOOD DENSITY CALCULATOR</a></li>
-
+        <li><a data-toggle="collapse" href="#collapseNeighbour"  aria-expanded="false"
+               aria-controls="collapseNeighbour"
+               style="color: black; font-weight: bold; background-color:#5789fa; text-decoration:none;">
+          <span class="glyphicon glyphicon-hand-right"></span> NEIGHBOURHOOD DENSITY CALCULATOR</a></li>
         <div class="collapse" id="collapseNeighbour">
           <form class="input-group" action="" method="POST">
             <input type="text" class="form-control" id="form" name="word" placeholder="Enter a word...">
               <span class="input-group-btn">
-                <button type="submit" class="btn btn-secondary" type="button"><span class="glyphicon glyphicon-search"></span></button>
+                <button type="submit" class="btn btn-secondary"
+                        type="button"><span class="glyphicon glyphicon-search"></span></button>
               </span>
           </form>
         </div>
@@ -83,23 +86,31 @@
         {% if density%}
 
         <div class="thumbnail" style="margin-top: 15px;">
-        <li><a style="color: green; font-weight: bold; text-decoration:none;"><span class="glyphicon glyphicon-thumbs-up"></span>  {{ word.upper() }} neighbourhood density is <b>{{ density|round }}</b></a></li>
+        <li><a style="color: green; font-weight: bold; text-decoration:none;"><span class="glyphicon glyphicon-thumbs-up"></span>
+          {{ word.upper() }} neighbourhood density is <b>{{ density|round }}</b>
+        </a></li>
         </div>
 
         {% else %}
         <div class="thumbnail" style="margin-top: 15px;">
-        <li><a style="color: red; font-weight: bold; text-decoration:none;"><span class="glyphicon glyphicon-thumbs-down"></span>  {{ word.upper() }} is a hermit - it does not have any neighbours</a></li>
+        <li><a style="color: red; font-weight: bold; text-decoration:none;">
+          <span class="glyphicon glyphicon-thumbs-down"></span>
+          {{ word.upper() }} is a hermit - it does not have any neighbours</a></li>
         </div>
 
         {% endif %}
         {% endif %}
         <hr>
-        <li><a data-toggle="collapse" href="#collapseCoefficient"  aria-expanded="false" aria-controls="collapseCoefficient" style="color: black; font-weight: bold; background-color:#5789fa; text-decoration:none;"><span class="glyphicon glyphicon-hand-right"></span> CLUSTERING COEFFICIENT CALCULATOR</a></li>
+        <li><a data-toggle="collapse" href="#collapseCoefficient"
+               aria-expanded="false" aria-controls="collapseCoefficient"
+               style="color: black; font-weight: bold; background-color:#5789fa; text-decoration:none;">
+          <span class="glyphicon glyphicon-hand-right"></span> CLUSTERING COEFFICIENT CALCULATOR</a></li>
         <div class="collapse" id="collapseCoefficient">
           <form class="input-group" action="" method="POST">
             <input type="text" class="form-control" id="form_co" name="word_co" placeholder="Enter a word...">
               <span class="input-group-btn">
-                <button type="submit" class="btn btn-secondary" type="button"><span class="glyphicon glyphicon-search"></span></button>
+                <button type="submit" class="btn btn-secondary" type="button">
+                  <span class="glyphicon glyphicon-search"></span></button>
               </span>
           </form>
         </div>
@@ -108,12 +119,16 @@
         {% if c != 0 %}
 
         <div class="thumbnail" style="margin-top: 15px;">
-        <li><a style="color: green; font-weight: bold; text-decoration:none;"><span class="glyphicon glyphicon-thumbs-up"></span>  {{ word_co.upper() }} clustering coefficient is <b>{{ c }}</b></a></li>
+        <li><a style="color: green; font-weight: bold; text-decoration:none;">
+          <span class="glyphicon glyphicon-thumbs-up"></span>
+          {{ word_co.upper() }} clustering coefficient is <b>{{ c }}</b></a></li>
         </div>
 
         {% else %}
         <div class="thumbnail" style="margin-top: 15px;">
-        <li><a style="color: red; font-weight: bold; text-decoration:none;"><span class="glyphicon glyphicon-thumbs-down"></span>  {{ word_co.upper() }}'s clustering coefficient is 0</a></li>
+        <li><a style="color: red; font-weight: bold; text-decoration:none;">
+          <span class="glyphicon glyphicon-thumbs-down"></span>
+          {{ word_co.upper() }}'s clustering coefficient is 0</a></li>
         </div>
 
         {% endif %}
@@ -132,9 +147,15 @@
 </footer>
 
 
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+          integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+          crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+          integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+          crossorigin="anonymous"></script>
 <script>
   $("[data-toggle=popover]").popover();
 </script>
